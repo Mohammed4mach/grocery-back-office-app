@@ -1,0 +1,126 @@
+.h
+{
+  color: $clr-black;
+  text-align: center;
+}
+
+.h1
+{
+  @extend .h;
+
+  font: {
+    size: 28px;
+    weight: 700;
+  }
+
+  @include screens(sm)
+  {
+    font-size: 40px;
+  }
+
+  @include screens(md)
+  {
+    font-size: 52px;
+  }
+
+  @include screens(lg)
+  {
+    font-size: 64px;
+  }
+
+  @include screens(2xl)
+  {
+    font-size: $font-xxxl;
+  }
+}
+
+.h2
+{
+  @extend .h;
+
+  font: {
+    size: 20px;
+    weight: 700;
+  }
+
+  @include screens(sm)
+  {
+    font-size: 32px;
+  }
+
+  @include screens(md)
+  {
+    font-size: 40px;
+  }
+
+  @include screens(lg)
+  {
+    font-size: 52px;
+  }
+
+  @include screens(2xl)
+  {
+    font-size: $font-xxl;
+  }
+}
+
+.h3
+{
+  @extend .h;
+
+  font: {
+    size: 20px;
+    weight: 700;
+  }
+
+  @include screens(sm)
+  {
+    font-size: 28px;
+  }
+
+  @include screens(md)
+  {
+    font-size: 38px;
+  }
+
+  @include screens(lg)
+  {
+    font-size: 48px;
+  }
+
+  @include screens(2xl)
+  {
+    font-size: $font-xl;
+  }
+}
+
+.h4
+{
+  @extend .h;
+
+  font: {
+    size: 20px;
+    weight: 700;
+  }
+
+  @include screens(sm)
+  {
+    font-size: 24px;
+  }
+
+  @include screens(md)
+  {
+    font-size: 28px;
+  }
+
+  @include screens(lg)
+  {
+    font-size: 38px;
+  }
+
+  @include screens(2xl)
+  {
+    font-size: $font-l;
+  }
+}
+

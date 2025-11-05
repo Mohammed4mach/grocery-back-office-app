@@ -1,0 +1,43 @@
+.customer-nav
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 24px;
+  margin-block: 40px;
+  border-bottom: 1px solid $clr-black;
+  overflow: hidden;
+
+  &__links
+  {
+    display: flex;
+    gap: 4%;
+    width: 85%;
+    min-width: fit-content;
+    text-align: center;
+  }
+
+  &__link
+  {
+    display: flex;
+    color: $clr-black;
+    font-size: $font-ms;
+
+    &--active
+    {
+      color: $clr-main;
+
+      .path-fill
+      {
+        fill: $clr-main;
+      }
+
+      .path-stroke
+      {
+        stroke: $clr-main;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,79 @@
+.paragraph
+{
+  color: $clr-gray4;
+  font-size: 14px;
+
+  @include screens(md)
+  {
+    font-size: 16px;
+  }
+}
+
+.paragraph--tiny
+{
+  font-size: $font-tiny;
+}
+
+.paragraph--medium
+{
+  font-size: 16px;
+
+  @include screens(md)
+  {
+    font-size: 18px;
+  }
+
+  @include screens(lg)
+  {
+    font-size: $font-ms;
+  }
+}
+
+.paragraph--large
+{
+  font-size: 18px;
+
+  @include screens(md)
+  {
+    font-size: $font-ms;
+  }
+
+  @include screens(lg)
+  {
+    font-size: $font-m;
+  }
+}
+
+.paragraph--xlarge
+{
+  font-size: $font-ms;
+
+  @include screens(md)
+  {
+    font-size: $font-m;
+  }
+
+  @include screens(lg)
+  {
+    font-size: $font-l;
+  }
+}
+
+.paragraph--gray0
+{ color: $clr-gray0 !important }
+
+.paragraph--gray1
+{ color: $clr-gray1 !important }
+
+.paragraph--gray2
+{ color: $clr-gray2 !important }
+
+.paragraph--gray3
+{ color: $clr-gray3 !important }
+
+.paragraph--gray4
+{ color: $clr-gray4 !important }
+
+.paragraph--gray-dark
+{ color: $clr-gray-dark !important }
+

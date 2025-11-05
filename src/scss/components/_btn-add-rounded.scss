@@ -1,0 +1,19 @@
+.btn-add-rounded
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $clr-white;
+  box-shadow: 4px 4px 16px rgba(187, 186, 186, 0.25);
+  cursor: pointer;
+
+  &__icon
+  {
+    width: 20px;
+    height: 20px;
+  }
+}
+

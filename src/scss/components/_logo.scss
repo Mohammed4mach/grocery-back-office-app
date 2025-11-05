@@ -1,0 +1,66 @@
+.logo
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo__icon
+{
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+
+  @include screens(md)
+  {
+    width: 48px;
+    height: 48px;
+  }
+
+  @include screens(lg)
+  {
+    width: 54px;
+    height: 56px;
+  }
+}
+
+.logo__bot
+{
+  width: 45px;
+  height: 44px;
+  flex-shrink: 0;
+
+  @include screens(md)
+  {
+    width: 76px;
+    height: 76px;
+  }
+
+  @include screens(lg)
+  {
+    width: 89px;
+    height: 88px;
+  }
+}
+
+.logo__cart
+{
+  width: 62px;
+  height: 44px;
+  margin-left: 2px;
+  flex-shrink: 0;
+
+  @include screens(md)
+  {
+    width: 105px;
+    height: 76px;
+  }
+
+  @include screens(lg)
+  {
+    width: 123px;
+    height: 88px;
+  }
+}
+

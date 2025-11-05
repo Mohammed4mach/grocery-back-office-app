@@ -1,0 +1,35 @@
+.product-form
+{
+  display: flex;
+  align-items: center;
+  padding: 48px;
+  border: 1px solid rgba($clr-gray1, 0.3);
+  border-radius: 24px;
+  gap: 32px;
+
+  @include screens(md)
+  {
+    padding: 64px;
+  }
+
+  &__imgs
+  {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__inputs
+  {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+    column-gap: 16px;
+  }
+
+  &__field
+  {
+    display: flex;
+    gap: 8px;
+  }
+}
+

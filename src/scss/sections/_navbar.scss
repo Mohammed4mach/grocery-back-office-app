@@ -1,0 +1,94 @@
+.navbar
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 120px;
+  background-color: white;
+  z-index: 900;
+
+  @include screens(lg)
+  {
+    position: unset;
+    top: unset;
+    left: unset;
+    display: flex;
+    align-items: center;
+    width: initial;
+    height: initial;
+    padding-top: 0;
+    background-color: unset;
+    z-index: unset;
+  }
+
+  &--mobile-shown
+  {
+    display: flex;
+  }
+
+  &__close
+  {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+
+    @include screens(lg)
+    {
+      display: none;
+    }
+  }
+}
+
+.navbar__links-container
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+
+  @include screens(lg)
+  {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @include screens(xl)
+  {
+    gap: 32px;
+  }
+
+  @include screens(2xl)
+  {
+    gap: 48px;
+  }
+}
+
+.navbar__link
+{
+  font-size: $font-ms;
+  color: $clr-gray4;
+
+  @include screens(lg)
+  {
+    font-size: 18px;
+  }
+
+  @include screens(xl)
+  {
+    font-size: $font-m;
+  }
+
+  &--active
+  {
+    font-weight: 500;
+    color: $clr-main;
+  }
+}
+

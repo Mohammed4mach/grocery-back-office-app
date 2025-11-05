@@ -1,0 +1,67 @@
+.google-play-card
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 12px;
+  padding-block: 10px;
+  border-radius: 8px;
+  background: #000;
+
+  @include screens(lg)
+  {
+    padding-inline: 18px;
+    padding-block: 14px;
+  }
+
+  &__logo
+  {
+    flex-shrink: 0;
+    width: 32px;
+
+    @include screens(lg)
+    {
+      width: 48px;
+    }
+  }
+
+  &__text
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 8px;
+
+    @include screens(lg)
+    {
+      margin-left: 8px;
+    }
+
+    &__get-it
+    {
+      color: $clr-white;
+      font-size: 8px;
+      letter-spacing: -0.32px;
+
+      @include screens(lg)
+      {
+        font-size: 12px;
+      }
+    }
+
+    &__name
+    {
+      color: $clr-white;
+      font: {
+        size: 24px;
+        font-weight: 500;
+      };
+
+      @include screens(lg)
+      {
+        font-size: 32px;
+      }
+    }
+  }
+}
+

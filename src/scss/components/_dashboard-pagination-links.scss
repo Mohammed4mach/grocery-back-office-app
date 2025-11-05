@@ -1,0 +1,36 @@
+.dashboard-pagination-links
+{
+  display: flex;
+  gap: 8px;
+
+  &__box
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid $clr-gray1;
+    border-radius: 4px;
+    color: $clr-gray1;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+
+    &--disabled
+    {
+      border-color: $clr-gray-white;
+      background-color: $clr-gray-white;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &--active
+    {
+      color: $clr-main;
+      border-color: $clr-main;
+    }
+  }
+}
+

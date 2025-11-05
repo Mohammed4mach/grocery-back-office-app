@@ -1,0 +1,69 @@
+.header
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 48px;
+  padding-inline: 5%;
+  margin-bottom: 126px;
+
+  @include screens(md)
+  {
+    margin-bottom: 200px
+  }
+
+  @include screens(lg)
+  {
+    margin-bottom: 260px
+  }
+
+
+  &__logo
+  {
+    .logo__icon
+    {
+      min-width: 35px;
+      min-height: 40px;
+    }
+
+    .logo__bot,
+    .logo__cart
+    {
+      display: none;
+
+      @include screens(md)
+      {
+        display: inline;
+      }
+    }
+  }
+
+  &__mobile-nav
+  {
+    &__toggler
+    {
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      padding: 8px;
+      border-radius: 4px;
+      background-color: $clr-gray-white;
+      cursor: pointer;
+
+      @include screens(md)
+      {
+        width: 48px;
+        height: 48px;
+      }
+
+      @include screens(lg)
+      {
+        display: none;
+      }
+    }
+  }
+}
+

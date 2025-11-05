@@ -1,0 +1,46 @@
+.form-login,
+.form-login__inputs,
+.form-login__footer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-login
+{
+  width: 100%;
+  gap: 32px;
+
+  @include screens(md)
+  {
+    gap: 40px;
+  }
+
+  @include screens(lg)
+  {
+    gap: 56px;
+  }
+}
+
+.form-login__inputs
+{
+  gap: 16px;
+
+  @include screens(md)
+  {
+    gap: 24px;
+  }
+}
+
+.form-login__footer
+{
+  gap: 8px;
+
+  @include screens(md)
+  {
+    gap: 16px;
+  }
+}
+

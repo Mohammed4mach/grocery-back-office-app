@@ -1,0 +1,113 @@
+.user-nav-card
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 4px;
+  padding-left: 8px;
+  border-left: 1px solid $clr-gray1;
+
+  @include screens(md)
+  {
+    gap: 8px;
+    padding-left: 16px;
+  }
+}
+
+.user-nav-card__avatar
+{
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+
+  img
+  {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.user-nav-card__info
+{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+
+  @include screens(md)
+  {
+    min-width: 75px;
+  }
+
+  @include screens(lg)
+  {
+    min-width: 100px;
+  }
+
+  &__name
+  {
+    color: $clr-gray-dark;
+    font-size: 14px;
+
+    @include screens(md)
+    {
+      font-size: $font-ms;
+    }
+  }
+
+  &__username
+  {
+    color: $clr-gray1;
+    font-size: 10px;
+  }
+}
+
+.user-nav-card__drop-arrow
+{
+  display: flex;
+
+  .user-nav-card__drop-arrow__img
+  {
+    transition: transform 300ms ease-out;
+    cursor: pointer;
+
+    &--flip
+    {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.user-nav-card__drop-menu
+{
+  display: flex;
+  flex-direction: column;
+  width: 164px;
+  position: absolute;
+  top: 124%;
+  background: $clr-white;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.12);
+  z-index: 300;
+
+  &__item
+  {
+    display: flex;
+    padding: 11px 16px;
+    gap: 8px;
+    cursor: pointer;
+
+    &:hover
+    {
+      background: $clr-gray-white;
+    }
+
+    &__title
+    {
+      font-size: $font-tiny;
+      color: $clr-gray4;
+    }
+  }
+}
+

@@ -1,0 +1,44 @@
+.customer-aside
+{
+  width: clamp(240px, 14%, 266px);
+  height: 100vh;
+  margin-right: clamp(240px, 14%, 266px);
+  z-index: 150;
+
+  &__container
+  {
+    position: fixed;
+    width: clamp(240px, 14%, 266px);
+    height: 100vh;
+    padding-block: 56px;
+    border-right: 0.5px solid rgba($clr-gray1, 0.3);
+    background: $clr-white;
+    box-shadow: 4px 4px 19px 0px rgba(161, 161, 161, 0.15);
+    overflow: auto;
+  }
+
+  .customer-aside,
+  &__body,
+  &__footer
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo
+  {
+    width: clamp(152px, 74.4%, 198px);
+  }
+
+  &__body
+  {
+    gap: 94px;
+  }
+
+  &__footer
+  {
+    margin-top: 150px;
+  }
+}
+

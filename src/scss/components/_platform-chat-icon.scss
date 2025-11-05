@@ -1,0 +1,20 @@
+.platform-chat-icon
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: $clr-white;
+  box-shadow: 0 12px 24px rgba($clr-main, 0.25);
+
+  &__platform
+  {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+}
+

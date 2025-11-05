@@ -1,0 +1,17 @@
+.dashboard-title
+{
+  font-size: 28px;
+  font-weight: 700;
+  color: $clr-black;
+
+  @include screens(sm)
+  {
+    font-size: 40px;
+  }
+
+  @include screens(md)
+  {
+    font-size: 48px;
+  }
+}
+

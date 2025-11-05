@@ -1,0 +1,15 @@
+.dashboard-header
+{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 40px;
+
+  &__search
+  {
+    width: clamp(440px, 46.5%, 673px);
+    aspect-ratio: 10.52 / 1;
+  }
+}
+

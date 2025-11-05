@@ -1,0 +1,35 @@
+.settings-page
+{
+  margin-top: 48px;
+
+  .input
+  {
+    border-color: $clr-gray1;
+  }
+
+  &__header
+  {
+    display: flex;
+    align-items: flex-end;
+    width: clamp(340px, 77%, 1100px);
+    margin-bottom: 40px;
+    border-bottom: 1px solid $clr-gray1;
+    gap: 80px;
+
+    &__tab
+    {
+      padding-bottom: 10px;
+      color: $clr-black;
+      font-size: $font-m;
+      cursor: pointer;
+
+      &--active
+      {
+        color: $clr-main;
+        padding-bottom: 8px;
+        border-bottom: 2px solid $clr-main;
+      }
+    }
+  }
+}
+

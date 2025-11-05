@@ -1,0 +1,110 @@
+.section-footer
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 48px;
+  height: 690px;
+  padding-inline: 6%;
+  padding-bottom: 16px;
+  background: $clr-gray-dark;
+
+  @include screens(sm)
+  {
+    height: 575px;
+  }
+
+  @include screens(md)
+  {
+    height: 655px;
+  }
+
+  @include screens(lg)
+  {
+    height: 800px;
+    padding-bottom: 0;
+  }
+}
+
+.section-footer__links
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @include screens(sm)
+  {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include screens(lg)
+  {
+    flex-wrap: nowrap;
+    gap: 24px;
+  }
+
+  @include screens(xl)
+  {
+    gap: 48px;
+  }
+
+  &__col
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: fit-content;
+
+    @include screens(md)
+    {
+      gap: 24px;
+    }
+
+    @include screens(lg)
+    {
+      gap: 32px;
+    }
+  }
+
+  &__link
+  {
+    color: $clr-white;
+    font-size: 14px;
+    text-wrap: nowrap;
+
+    @include screens(md)
+    {
+      font-size: $font-ms;
+    }
+
+    @include screens(xl)
+    {
+      font-size: $font-m;
+    }
+  }
+}
+
+.section-footer__copy
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 24px;
+  border-top: 1px solid $clr-white;
+  color: $clr-white;
+  font-size: 16px;
+
+  @include screens(md)
+  {
+    font-size: $font-ms;
+  }
+
+  @include screens(lg)
+  {
+    padding-block: 40px;
+    margin-top: 52px;
+    font-size: $font-m;
+  }
+}
+

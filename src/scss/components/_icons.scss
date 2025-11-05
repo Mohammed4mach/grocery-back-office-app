@@ -1,0 +1,15 @@
+.avatar
+{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar__img
+{
+  width: 80%;
+}
+

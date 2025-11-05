@@ -1,0 +1,20 @@
+const Minus = (props) => {
+  let {className} = props;
+  className = className ?? '';
+
+  return (
+    <svg className={className} width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clipPath="url(#clip0_2443_1485)">
+        <path className="path-stroke path-fill" d="M5.5 11H19.5V13H5.5V11Z" fill="#3C3C3C"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_2443_1485">
+          <rect width="24" height="24" fill="white" transform="translate(0.5)"/>
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export default Minus;
+

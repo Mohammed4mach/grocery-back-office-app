@@ -1,0 +1,105 @@
+.input-multi-img
+{
+  &__container
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__input
+  {
+    display: none;
+  }
+
+  &__img
+  {
+    width: 320px;
+    height: 294px;
+    border: 1px solid rgba($clr-gray4, 0.3);
+    border-radius: 16px;
+    position: relative;
+    box-shadow: -4px 0px 16px 0px rgba(0, 122, 234, 0.10);
+    overflow: hidden;
+    flex-shrink: 0;
+
+    @include screens(md)
+    {
+      width: 448px;
+      height: 412px;
+    }
+
+    &__img
+    {
+      width: 320px;
+      height: 294px;
+      object-fit: cover;
+
+      @include screens(md)
+      {
+        width: 448px;
+        height: 412px;
+      }
+    }
+
+    &__close
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #FFF;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+  }
+
+  &__imgs
+  {
+    display: flex;
+    max-width: 448px;
+    min-height: 80px;
+    overflow: auto;
+    gap: 12px;
+
+    &__img
+    {
+      width: 64px;
+      height: 64px;
+      border: 1px solid rgba($clr-gray4, 0.3);
+      border-radius: 6px;
+      flex-shrink: 0;
+      overflow: hidden;
+      cursor: pointer;
+
+      @include screens(md)
+      {
+        width: 80px;
+        height: 80px;
+      }
+
+      &__img
+      {
+        width: 64px;
+        height: 64px;
+
+        @include screens(md)
+        {
+          width: 80px;
+          height: 80px;
+        }
+      }
+
+      &--active
+      {
+        box-shadow: 3px 0px 12px 0px rgba(0, 122, 234, 0.10);
+      }
+    }
+  }
+}
+

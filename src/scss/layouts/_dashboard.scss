@@ -1,0 +1,29 @@
+.layout-dashboard
+{
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100vh;
+
+  &--no-scroll
+  {
+    overflow: hidden;
+
+    @include screens(lg)
+    {
+      overflow: auto;
+    }
+  }
+
+  @include screens(lg)
+  {
+    grid-template-columns: auto 1fr;
+  }
+
+  &__body
+  {
+    padding-inline: 5.7%;
+    padding-bottom: 64px;
+    overflow: auto;
+  }
+}
+

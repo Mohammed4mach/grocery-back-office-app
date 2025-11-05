@@ -1,0 +1,151 @@
+.order
+{
+  $expand-border: 0.5px solid rgba($clr-gray4, 0.3);
+
+  &__cell
+  {
+    $border: 1px solid $clr-gray1;
+    $radius: 16px;
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 64px;
+    padding: {
+      top: 36px;
+      bottom: 24px;
+      inline: 24px;
+    }
+    border-bottom: $border;
+    color: $clr-gray4;
+
+    &--first
+    {
+        padding-left: 32px;
+        border-left: $border;
+
+        &--last
+        {
+          border-bottom-left-radius: $radius;
+        }
+    }
+
+    &--last
+    {
+        border-right: $border;
+
+        &--last
+        {
+          border-bottom-right-radius: $radius;
+        }
+    }
+
+    &--head
+    {
+      padding: {
+        top: 24px;
+        bottom: 16px;
+      }
+      border-top: $border;
+
+      &--first
+      {
+        padding-left: 32px;
+        border-left: $border;
+        border-top-left-radius: $radius;
+      }
+
+      &--last
+      {
+        border-right: $border;
+        border-top-right-radius: $radius;
+      }
+    }
+
+    input[type='checkbox']
+    {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+
+  &__strong
+  {
+    color: $clr-black;
+    font-size: $font-ms;
+  }
+
+  &__status
+  {
+    display: flex;
+    align-items: center;
+    width: 14ch;
+    max-width: 132px;
+    min-width: fit-content;
+    position: relative;
+    aspect-ratio: 4.125 / 1;
+    padding: 4px 16px;
+    border-radius: 4px;
+    color: $clr-main;
+    cursor: pointer;
+    user-select: none;
+
+    .path-stroke
+    {
+      stroke: $clr-main;
+    }
+
+    .path-fill
+    {
+      fill: $clr-main;
+    }
+
+    &--confirmed
+    {
+      color: $clr-active;
+
+      .path-stroke
+      {
+        stroke: $clr-active;
+      }
+
+      .path-fill
+      {
+        fill: $clr-active;
+      }
+    }
+
+    &--cancelled
+    {
+      color: $clr-rejected;
+      cursor: default;
+
+      .path-stroke
+      {
+        stroke: $clr-rejected;
+      }
+
+      .path-fill
+      {
+        fill: $clr-rejected;
+      }
+    }
+
+    &--done
+    {
+      color: $clr-black;
+      cursor: default;
+    }
+
+    &__drop-menu
+    {
+      width: fit-content;
+      min-width: 106px;
+      border: 1px solid $clr-gray1;
+      border-radius: 4px;
+      box-shadow: none;
+    }
+  }
+}
+

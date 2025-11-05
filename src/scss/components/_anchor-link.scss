@@ -1,0 +1,12 @@
+.anchor-link
+{
+  color: $clr-main;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &--no-underline
+  {
+    text-decoration: none;
+  }
+}
+

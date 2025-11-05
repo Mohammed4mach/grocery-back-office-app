@@ -1,0 +1,37 @@
+.flex-center
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin screens($screens...) {
+  @each $screen in $screens {
+    @if $screen == sm {
+      @media (min-width: 640px) {
+        @content;
+      }
+    }
+    @if $screen == md {
+      @media (min-width: 768px) {
+        @content;
+      }
+    }
+    @if $screen == lg {
+      @media (min-width: 1024px) {
+        @content;
+      }
+    }
+    @if $screen == xl {
+      @media (min-width: 1280px) {
+        @content;
+      }
+    }
+    @if $screen == 2xl {
+      @media (min-width: 1536px) {
+        @content;
+      }
+    }
+  }
+}
+

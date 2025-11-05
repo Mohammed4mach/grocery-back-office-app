@@ -1,0 +1,148 @@
+.product-card-modal
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  @include screens(xl)
+  {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  &__pictures
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 342px;
+
+    @include screens(md)
+    {
+      max-width: 508px;
+    }
+
+    &__slider
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      border: 1px solid rgba($clr-gray1, 0.3);
+      border-radius: 50%;
+      cursor: pointer;
+
+      @include screens(md)
+      {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__img
+  {
+    width: 320px;
+    height: 294px;
+    border: 1px solid $clr-main;
+    border-radius: 16px;
+    box-shadow: -4px 0px 16px 0px rgba(0, 122, 234, 0.10);
+    overflow: hidden;
+
+    @include screens(md)
+    {
+      width: 448px;
+      height: 412px;
+    }
+
+    img
+    {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__imgs
+  {
+    display: flex;
+    gap: 12px;
+    max-width: 320px;
+    width: 100%;
+    overflow: auto;
+    margin-inline: 30px;
+
+    @include screens(md)
+    {
+      max-width: 448px;
+    }
+
+    &__img
+    {
+      width: 64px;
+      height: 64px;
+      border: 1px solid rgba($clr-gray4, 0.3);
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      flex-shrink: 0;
+
+      @include screens(md)
+      {
+        width: 80px;
+        height: 80px;
+      }
+
+      &--active
+      {
+        border: 1px solid $clr-main;
+        box-shadow: -2px 2px 12px 0px rgba(0, 122, 234, 0.20);
+      }
+    }
+  }
+
+  &__name
+  {
+    font-size: 28px;
+    font-weight: 500px;
+    color: $clr-black;
+
+    @include screens(md)
+    {
+      font-size: 36px;
+    }
+  }
+
+  &__detail-key
+  {
+    color: $clr-gray4;
+    font-size: $font-s;
+    font-weight: 500;
+    line-height: 21px;
+  }
+
+  &__price
+  {
+    color: $clr-main;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 44px;
+
+    @include screens(sm)
+    {
+      font-size: 40px;
+    }
+
+    @include screens(md)
+    {
+      font-size: 48px;
+    }
+
+    @include screens(md)
+    {
+      font-size: 66px;
+    }
+  }
+}
+

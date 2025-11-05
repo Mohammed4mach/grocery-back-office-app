@@ -1,0 +1,75 @@
+.colored-status-tag
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 14ch;
+  max-width: 132px;
+  min-width: fit-content;
+  position: relative;
+  aspect-ratio: 4.125 / 1;
+  padding: 4px 16px;
+  border-radius: 4px;
+  background: rgba(0, 122, 234, 0.16);
+  color: $clr-main;
+  cursor: pointer;
+
+  .path-stroke
+  {
+    stroke: $clr-main;
+  }
+
+  .path-fill
+  {
+    fill: $clr-main;
+  }
+
+  &--active
+  {
+    color: $clr-active;
+    background: rgba(73, 183, 25, 0.16);
+
+    .path-stroke
+    {
+      stroke: $clr-active;
+    }
+
+    .path-fill
+    {
+      fill: $clr-active;
+    }
+  }
+
+  &--cancelled
+  {
+    color: $clr-rejected;
+    background: rgba(192, 23, 23, 0.16);
+
+    .path-stroke
+    {
+      stroke: $clr-rejected;
+    }
+
+    .path-fill
+    {
+      fill: $clr-rejected;
+    }
+  }
+
+  &--orange
+  {
+    color: $clr-orange;
+    background: rgba(239, 133, 9, 0.20);
+
+    .path-stroke
+    {
+      stroke: $clr-orange;
+    }
+
+    .path-fill
+    {
+      fill: $clr-orange;
+    }
+  }
+}
+

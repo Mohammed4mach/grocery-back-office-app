@@ -1,0 +1,54 @@
+.customer-pagination-links
+{
+  display: flex;
+  gap: 8px;
+
+  &__box
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid $clr-gray0;
+    border-radius: 50%;
+    color: $clr-gray-dark;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+
+    &--disabled
+    {
+      pointer-events: none;
+      cursor: default;
+
+      .path-fill
+      {
+        fill: $clr-gray0;
+      }
+
+      .path-stroke
+      {
+        stroke: $clr-gray0;
+      }
+    }
+
+    &--active
+    {
+      color: $clr-white;
+      background-color: $clr-main;
+      border-color: $clr-main;
+    }
+  }
+
+  &__dots
+  {
+    border: none;
+  }
+
+  &__arrow
+  {
+    border: none;
+  }
+}
+
