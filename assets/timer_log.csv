@@ -6,3 +6,6 @@ list name,task description,run time,timer started,timer stopped
 "grocery-back-office-app","Clean the project (Again!)",1500,2025-11-29T05:45:18+0200,2025-11-29T06:10:18+0200
 "grocery-back-office-app","Clean the project (Again!)",1500,2025-11-29T06:18:37+0200,2025-11-29T06:43:37+0200
 "grocery-back-office-app","Clean the project (Again!)",1500,2025-11-29T06:55:24+0200,2025-11-29T07:20:25+0200
+"grocery-back-office-app","Write models",1500,2025-11-29T07:44:36+0200,2025-11-29T08:09:37+0200
+"grocery-back-office-app","Write models",44,2025-11-29T08:42:54+0200,2025-11-29T18:48:14+0200
+"grocery-back-office-app","Write services",15,2025-11-29T19:34:36+0200,2025-11-29T19:34:51+0200

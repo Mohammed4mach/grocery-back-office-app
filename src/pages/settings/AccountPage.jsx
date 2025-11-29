@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { User } from '@/models';
+import { User } from '@/services';
 import Auth from '@/utils/Auth';
 import { useLoader, useDashboardTitle } from '@/hooks';
 import { A, P, Modal, Button, DashboardTitle } from '@/components';

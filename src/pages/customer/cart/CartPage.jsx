@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { H2, P, Button, CartItem, Modal, InfoTooltip } from '@/components';
 import { FormUnit, Label, Input, TextArea } from '@/components/inputs';
-import { Product as ProductModel, Cart, Order } from '@/models';
+import { Product as ProductModel, Cart, Order } from '@/services';
 import { useLoader } from '@/contexts/loaderContext';
 import { Success } from '@/components/icons';
 

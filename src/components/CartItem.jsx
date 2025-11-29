@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Cart } from '@/models';
+import { Cart } from '@/services';
 import { P, A, ProductCardModal } from '@/components';
 import placeholder from '@/assets/images/gray.png';
 import Counter from './inputs/Counter';

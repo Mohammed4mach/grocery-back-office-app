@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useLoader } from '@/contexts/loaderContext';
 import OrderStatus from './OrderStatus';
-import { Order as OrderModel } from '@/models';
+import { Order as OrderModel } from '@/services';
 import { P } from '@/components';
 import { OrderStatuses } from '@/enums';
 

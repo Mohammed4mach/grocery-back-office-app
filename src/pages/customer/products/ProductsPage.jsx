@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import { Product as ProductModel } from '@/models';
+import { Product as ProductModel } from '@/services';
 import { useLoader } from '@/contexts/loaderContext';
 import { Nav } from '@/sections/customer';
 import { ProductCard  } from '@/components';

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Order } from '@/models';
+import { Order } from '@/services';
 import { OrderStatuses } from '@/enums';
 import { formatDate } from '@/helpers/date';
 import { Button } from '@/components';

@@ -6,7 +6,7 @@ import {
   Password,
   Label,
 } from '@/components/inputs';
-import { User } from '@/models';
+import { User } from '@/services';
 import { useLoader } from '@/hooks';
 
 const EditPassword = () =>

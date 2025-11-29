@@ -1,4 +1,4 @@
-import { User } from '@/models';
+import { User } from '@/services';
 import Auth from '@/utils/Auth';
 
 class AuthController

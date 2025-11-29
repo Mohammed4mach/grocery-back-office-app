@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useLoader } from '@/hooks';
-import { Product } from '@/models';
+import { Product } from '@/services';
 import { Button, ArrowLeft } from '@/components/buttons';
 import { H4, ProductForm, Modal } from '@/components';
 import { InputMultiImg } from '@/components/inputs';

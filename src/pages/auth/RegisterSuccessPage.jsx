@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { H3, P } from '@/components';
 import { Success } from '@/components/icons';
-import { User } from '@/models';
+import { User } from '@/services';
 import { useLoader } from '@/hooks';
 
 const RegisterSuccessPage = () =>

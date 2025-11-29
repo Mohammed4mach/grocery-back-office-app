@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { OrderStatuses } from '@/enums';
 import { useDashboardTitle } from '@/hooks';
-import { Order as OrderModel } from '@/models';
+import { Order as OrderModel } from '@/services';
 import {
   P,
   DashboardTitle,

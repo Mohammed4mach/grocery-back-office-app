@@ -5,7 +5,7 @@ import {
 } from "@/layouts";
 import {
   DashboardPage,
-  ProductsPage,
+  ProductsPage as DashboardProductsPage,
   AccountPage,
 } from "@/pages";
 import {
@@ -28,7 +28,7 @@ import {
   LandingPage,
 } from "@/pages";
 import {
-  ProductsPage,
+  ProductsPage as CustomerProductsPage,
   CartPage,
 } from "@/pages/customer";
 
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: '/products',
-            element: <ProductsPage />
+            element: <CustomerProductsPage />
           },
           {
             path: '/cart',
@@ -96,7 +96,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'products',
-            element: <ProductsPage />,
+            element: <DashboardProductsPage />,
           },
           {
             path: 'my-account',

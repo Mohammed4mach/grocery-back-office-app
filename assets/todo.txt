@@ -1,6 +1,3 @@
-2025-11-29 Clean the project (Again!) timer:1h-25m-5s
-2025-11-29 .env
-2025-11-29 Write models
 2025-11-29 Brand color and logo timer:0h-1m-52s
 2025-11-29 Auth and login
 2025-11-29 Products page
@@ -10,3 +7,6 @@
 2025-11-29 Product storage types pages
 2025-11-29 users page
 x 2025-11-29 2025-11-29 Clean the project timer:0h-43m-18s
+x 2025-11-29 2025-11-29 Clean the project (Again!) timer:1h-30m-3s
+x 2025-11-29 2025-11-29 .env
+x 2025-11-29 2025-11-29 Write services timer:0h-41m-0s

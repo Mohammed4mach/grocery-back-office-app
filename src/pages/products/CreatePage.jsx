@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoader } from '@/hooks';
 import { H4, P } from '@/components';
-import { Product } from '@/models';
+import { Product } from '@/services';
 import { ArrowLeft } from '@/components/buttons';
 import { ProductForm } from '@/components';
 

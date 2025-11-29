@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useNavigate, useParams, NavLink } from 'react-router-dom';
-import { Cart, CartItem } from '@/models';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { Cart, CartItem } from '@/services';
 import { P, Modal, Button } from '@/components';
 import arrowRight from '@/assets/icons/arrow-drop-right-line.svg';
 import arrowLeft from '@/assets/icons/arrow-drop-left-line.svg';
