@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Product as ProductModel } from '@/services';
 import { useLoader } from '@/contexts/loaderContext';
 import { Nav } from '@/sections/customer';
 import { ProductCard  } from '@/components';
-import { PlatformChatIcon } from "@/components/icons";
 
 const ProductsPage = () => {
   const navigate = useNavigate();
@@ -71,10 +70,6 @@ const ProductsPage = () => {
           <h3 className="font-m clr-gray2 flex-center">No products</h3>
         )}
       </section>
-
-      <NavLink className="fixed right-[5%] bottom-[5%]">
-        <PlatformChatIcon />
-      </NavLink>
     </section>
   );
 };

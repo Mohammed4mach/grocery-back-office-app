@@ -11,26 +11,26 @@
 .form-login
 {
   width: 100%;
-  gap: 32px;
+  gap: 28px;
 
   @include screens(md)
   {
-    gap: 40px;
+    gap: 32px;
   }
 
   @include screens(lg)
   {
-    gap: 56px;
+    gap: 40px;
   }
 }
 
 .form-login__inputs
 {
-  gap: 16px;
+  gap: 12px;
 
   @include screens(md)
   {
-    gap: 24px;
+    gap: 16px;
   }
 }
 
@@ -40,7 +40,7 @@
 
   @include screens(md)
   {
-    gap: 16px;
+    gap: 14px;
   }
 }
 

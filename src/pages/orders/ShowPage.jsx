@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Order } from '@/services';
 import { OrderStatuses } from '@/enums';
-import { formatDate } from '@/helpers/date';
 import { Button } from '@/components';
 import { useLoader } from '@/hooks';
 import arrow from '@/assets/icons/arrow-left-line-black.svg';
@@ -142,7 +141,6 @@ const ShowPage = () =>
 
             <section className="order-show__info-card__body">
               <div className="order-show__info-card__info__key">Created:</div>
-              <p className="order-show__info-card__info__value">{formatDate(order.createdAt) ?? '-'}</p>
 
               <div className="order-show__info-card__info__key">Status:</div>
               <p

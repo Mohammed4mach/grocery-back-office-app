@@ -47,8 +47,7 @@ const EditPage = () =>
     const res = await Product.edit(productId, body);
 
     closeLoader();
-console.log(body);
-console.log(res);
+
     if(res.status != 204)
     {
       alert(res.data?.detail ?? 'Unkown error, try again later');

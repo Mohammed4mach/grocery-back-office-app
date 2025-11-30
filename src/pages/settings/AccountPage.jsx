@@ -85,7 +85,6 @@ const AccountPage = () =>
       return;
     }
 
-    Auth.logout();
     window.location.href = '/';
   };
 

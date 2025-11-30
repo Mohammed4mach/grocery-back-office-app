@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Auth from '@/utils/Auth.js';
+import AuthController from '@/controllers/AuthController.js';
 import { User } from '@/services';
 import { useLoader, useUser } from '@/hooks';
 import arrow from '@/assets/icons/arrow-drop-down-line-gray3.svg'
@@ -46,9 +46,9 @@ const UserNavCard = (props) => {
   const [menuShown, setMenuShown] = useState(false);
   const {showLoader, closeLoader} = useLoader();
 
-  const logout = () => {
-    Auth.logout();
-    window.location.href = '/';
+  const logout = async () => {
+    await AuthController.logout();
+    window.location.href = '/login';
   };
 
   useEffect(() => {

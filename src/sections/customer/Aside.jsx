@@ -1,5 +1,4 @@
 import Nav from './Nav';
-import company from '@/assets/icons/company-logo-example-large.svg';
 
 const Aside = () => {
 
@@ -8,11 +7,7 @@ const Aside = () => {
       <section className="customer-aside__container">
         <section className="customer-aside__body">
           <section className="overflow-hidden w-[154px] h-[133px] rounded-[20px]">
-            <img
-              src={company}
-              alt=""
-              className=""
-            />
+            COMPANY_LOGO
           </section>
 
           <Nav />

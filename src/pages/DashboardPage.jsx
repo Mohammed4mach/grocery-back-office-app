@@ -4,14 +4,10 @@ import {
   A,
   P,
   DashboardTitle,
-  AddRounded,
-  InfoTooltip,
 } from '@/components';
 import hand from '@/assets/icons/fluent_hand-wave-24-filled.svg';
 import pending from '@/assets/icons/Pending.svg';
 import confirmed from '@/assets/icons/Confirmed.svg';
-import opened from '@/assets/icons/Opened.svg';
-import closed from '@/assets/icons/Done.svg';
 
 const DashboardPage = () => {
   const { user }     = useUser();

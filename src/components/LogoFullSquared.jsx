@@ -1,4 +1,4 @@
-import logo from '@/assets/logo-full-square.svg'
+import logo from '@/assets/logo-icon.png'
 
 const LogoFullSquared = (props) =>
 {

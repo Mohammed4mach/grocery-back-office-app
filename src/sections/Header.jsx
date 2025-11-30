@@ -1,33 +1,20 @@
 import { useState } from 'react';
 import NavBar from './NavBar';
-import Auth from '@/utils/Auth';
 import {
   LogoDivided,
-  Button,
   UserNavCard,
   NotificationBell
 } from '@/components';
 import { MobileMenu } from '@/components/icons';
 
 const Header = () => {
-  let authed = Auth.authed();
   const [mobileNavShown, setMobileNavShown] = useState(false);
 
-  const RightSection = !authed ?
-    () => (
-      <section className="flex items-center gap-[8px] md:gap-[24px]">
-        <Button
-          to='login'
-          secondary
-          small
-        >
-          Login
-        </Button>
+  return (
+    <header className="header">
+      <LogoDivided className="header__logo" />
+      <NavBar shown={mobileNavShown} close={() => setMobileNavShown(false)} />
 
-        <MobileMenu />
-      </section>
-    ) :
-    () => (
       <section className="flex items-center gap-[8px] md:gap-[24px]">
         <section
           className="flex justify-center items-center"
@@ -38,13 +25,6 @@ const Header = () => {
 
         <MobileMenu onClick={() => setMobileNavShown(true)} />
       </section>
-    );
-
-  return (
-    <header className="header">
-      <LogoDivided className="header__logo" />
-      <NavBar shown={mobileNavShown} close={() => setMobileNavShown(false)} />
-      <RightSection />
     </header>
   )
 };

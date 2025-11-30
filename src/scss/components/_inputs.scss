@@ -1,7 +1,7 @@
 .input
 {
   width: 290px;
-  height: 52px;
+  height: 40px;
   padding: 8px 10px;
   border: 1px solid $clr-gray2;
   border-radius: $br-secondary;
@@ -16,14 +16,14 @@
   @include screens(md)
   {
     width: 382px;
-    height: 64px;
+    height: 50px;
     padding: 10px 16px;
   }
 
   @include screens(lg)
   {
     width: 554px;
-    height: 72px;
+    height: 60px;
   }
 
   &::placeholder
@@ -63,6 +63,7 @@
 {
   background: $clr-white;
   color: $clr-gray-dark;
+  border: none;
   outline: none;
   resize: none;
 

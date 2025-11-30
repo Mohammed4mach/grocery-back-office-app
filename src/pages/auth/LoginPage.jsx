@@ -23,7 +23,7 @@ const LoginPage = () =>
   const {showLoader, closeLoader} = useLoader();
 
   const submit = async (data) => {
-    const username    = data.get('username');
+    const username = data.get('username');
     const password = data.get('password');
 
     showLoader();
@@ -77,13 +77,12 @@ const LoginPage = () =>
         </Button>
 
         <div className="flex-center">
-          <A to='/forgot-password' className="clr-gray3 text-[14px] md:text-[16px]">Forgot Password?</A>
-        </div>
-
-        <div className="flex-center">
-          <P gray3>
-            First time here? <A to="/register">Create your account now.</A>
-          </P>
+          <A
+            onClick={() => alert('How dare you? Wait till we implement it!')}
+            className="clr-gray3 text-[14px] md:text-[16px]"
+          >
+            Forgot Password?
+          </A>
         </div>
       </section>
     </form>

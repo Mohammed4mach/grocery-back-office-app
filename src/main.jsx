@@ -7,6 +7,8 @@ import axios from 'axios'
 
 window.axios = axios;
 
+axios.defaults.withCredentials = true
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <LoaderProvider>
     <UserProvider>

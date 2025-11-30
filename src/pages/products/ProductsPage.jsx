@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { Product as ProductModel } from '@/services';
 import { useDashboardTitle } from '@/hooks';
 import {

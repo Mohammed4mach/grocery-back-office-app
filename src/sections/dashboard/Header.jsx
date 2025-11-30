@@ -6,8 +6,8 @@ import {
 import { MobileMenu } from '@/components/icons';
 
 const Header = (props) => {
-  const {openAside} = props;
   const {title}     = useDashboardTitle();
+  const {openAside} = props;
 
   return (
     <header className="dashboard-header">

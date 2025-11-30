@@ -4,7 +4,6 @@ const MobileMenu = (props) => {
   let {className} = props;
   className = className ?? '';
 
-
   return (
     <button
       {...props}

@@ -20,9 +20,7 @@ export { default as Label } from './inputs/Label';
 export { default as InputWithCopy } from './inputs/InputWithCopy';
 export { default as FormUnit } from './inputs/FormUnit';
 export { default as UserNavCard } from './user/UserNavCard';
-export { default as Pole } from './Pole';
 export { default as FrequentQuestion } from './FrequentQuestion';
-export { default as GooglePlayCard } from './GooglePlayCard';
 export { default as Modal } from './Modal';
 export { default as SelectWithLabel } from './inputs/SelectWithLabel';
 export { default as DateWithLabel } from './inputs/DateWithLabel';
@@ -37,5 +35,4 @@ export { default as InfoTooltip } from './InfoTooltip';
 export { default as CartItem } from './CartItem';
 export { default as DashboardTitle } from './dashboard/DashboardTitle';
 export { default as AddRounded } from './buttons/AddRounded';
-export { default as RoundedQuotaMeter } from './RoundedQuotaMeter';
 

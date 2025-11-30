@@ -108,10 +108,6 @@ const router = createBrowserRouter([
         element: <FormLayout />,
         children: [
           {
-            path: 'register/success',
-            element: <RegisterSuccessPage />,
-          },
-          {
             path: 'products/create',
             element: <ProductCreatePage />,
           },
