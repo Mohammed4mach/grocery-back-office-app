@@ -6,9 +6,9 @@ import cartIcon from '@/assets/icons/shopping-cart-2-line-white.svg';
 import placeholder from '@/assets/images/image-placeholder.svg';
 
 const ProductCardModal = (props) => {
-  let {className, product} = props;
-  const {shown, close, cartView}     = props;
-  const {refreshCount}     = useCart();
+  let {className, product}       = props;
+  const {shown, close, cartView} = props;
+  const {refreshCount}           = useCart();
 
   className = className ?? '';
 

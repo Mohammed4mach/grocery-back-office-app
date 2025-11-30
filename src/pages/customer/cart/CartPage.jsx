@@ -1,22 +1,51 @@
 import { useEffect, useState } from 'react';
-import { H2, P, Button, CartItem, Modal, InfoTooltip } from '@/components';
-import { FormUnit, Label, Input, TextArea } from '@/components/inputs';
-import { Product as ProductModel, Cart, Order } from '@/services';
+import { useDashboardTitle } from '@/hooks';
+import { H2, P, Button, CartItem, Modal, InfoTooltip, DashboardTitle } from '@/components';
+import { FormUnit, Label, Input, TextArea, Select, Option } from '@/components/inputs';
+import { Product as ProductModel, Cart, Order, Customer } from '@/services';
+import { useCart } from '@/contexts/cartContext';
 import { useLoader } from '@/contexts/loaderContext';
 import { Success } from '@/components/icons';
 
 const CartPage = () => {
   const [total, setTotal]         = useState(0);
   const [items, setItems]         = useState([]);
+  const [customers, setCustomers] = useState([]);
   const [_refresh, setRefresh]    = useState(false);
   const {showLoader, closeLoader} = useLoader();
+  const {refreshCount}            = useCart();
 
-  const [orderNumber, setOrderNumber]                       = useState(1);
+  const [orderId, setOrderId]                               = useState(1);
   const [orderError, setOrderError]                         = useState('');
   const [orderModalShown, setOrderModalShown]               = useState(false);
   const [orderSuccessModalShown, setOrderSuccessModalShown] = useState(false);
 
+  const {setTitle} = useDashboardTitle();
+
   const refresh = () => setRefresh(old => !old);
+
+  useEffect(() => {
+    showLoader();
+
+    Customer.index()
+      .then(res => {
+        if(res.status != 200)
+        {
+          alert(res.data?.message ?? 'Unkown error')
+          navigate('/dashboard');
+          return;
+        }
+
+        setCustomers(res.data.data ?? {});
+      })
+      .catch(alert)
+      .finally(() => closeLoader());
+  }, []);
+
+  useEffect(() => {
+    if(setTitle instanceof Function)
+      setTitle(() => <DashboardTitle>Cart</DashboardTitle>);
+  }, [setTitle]);
 
   useEffect(() => {
     showLoader();
@@ -48,7 +77,6 @@ const CartPage = () => {
           const subtotal = item.product.price * item.quantity;
 
           setTotal(total => total + subtotal);
-
           setItems(items => [...items, item]);
         });
       })
@@ -59,28 +87,34 @@ const CartPage = () => {
   const submitOrder = async (data) => {
     const cartObj = new Cart();
     const cart    = cartObj.get();
+    const items   = Object.values(cart).map(item => ({ product_id: item.productId, quantity: item.quantity }));
     const body    = {
-      name: data.get('name'),
-      address: data.get('address'),
-      phoneNumber: data.get('phoneNumber'),
+      customer_id: data.get('customer_id'),
       notes: data.get('notes'),
-      items: Object.values(cart),
+      items: items,
     };
 
+    if(!body.customer_id)
+    {
+      setOrderError("Please, choose a customer");
+      return;
+    }
+
     showLoader();
-    const res = await Order.create(body, false);
+    const res = await Order.create(body);
     closeLoader();
 
-    if(res.status != 201)
+    if(res.status != 200)
     {
       setOrderError(res.data?.message ?? 'Unkown error, try again later');
       return;
     }
 
     cartObj.clear();
-    setOrderNumber(res.data.number);
+    setOrderId(res.data.data.id);
     setOrderModalShown(false);
     setOrderSuccessModalShown(true);
+    refreshCount();
   }
 
   return (
@@ -136,7 +170,7 @@ const CartPage = () => {
 
             <section className="flex gap-[8px] items-end">
               <span className="clr-gray4 font-[500]">Total:</span>
-              <span className="clr-black text-[32px] font-[500] leading-[32px]">{total}$</span>
+              <span className="clr-black text-[32px] font-[500] leading-[32px]">{Math.round((total + Number.EPSILON) * 100) / 100}$</span>
             </section>
           </section>
 
@@ -144,23 +178,20 @@ const CartPage = () => {
           <section className="flex-center flex-col gap-[16px]">
             <section className="flex flex-col gap-[16px]">
               <FormUnit>
-                <Label>Name</Label>
+                <Label>Customer</Label>
 
-                <Input
-                  name="name"
+                <Select
+                  name="customer_id"
                   type="text"
                   required
-                />
-              </FormUnit>
-
-              <FormUnit>
-                <Label>Address</Label>
-
-                <Input
-                  name="address"
-                  type="text"
-                  required
-                />
+                >
+                  <Option selected disabled>Choose a customer</Option>
+                  {
+                    customers.map(customer =>(
+                      <Option value={customer.id}>{customer.fullname} ─ {customer.address}</Option>
+                    ))
+                  }
+                </Select>
               </FormUnit>
             </section>
 
@@ -196,7 +227,7 @@ const CartPage = () => {
 
       {/* Order success modal */}
       <Modal
-        className="m-w-fit !py-[60px] !px-[250px]"
+        className="m-w-fit !py-[110px] !px-[160px]"
         shown={orderSuccessModalShown}
         close={() => setOrderSuccessModalShown(false)}
         noClose
@@ -207,19 +238,16 @@ const CartPage = () => {
             <Success />
 
             <h4 className="clr-black text-[36px] font-[500] leading-[44px]">
-              Order ID: #{orderNumber}
+              Order ID: #{orderId}
             </h4>
 
-            <P
-              className="max-w-[558px]"
-              grayDark center large
-            >
-              Thank you for your order! Rest assured, it's confirmed, and we'll be in touch with you shortly.
+            <P grayDark center large>
+              Order has been submitted! Follow-up to schedule delivery.
             </P>
           </section>
 
-          <Button className="w-[554px] h-[64px]" to={`/products`}>
-            Explore more products
+          <Button className="w-[554px] h-[64px]" to={`/dashboard/orders/${orderId}`}>
+            Follow-up Order
           </Button>
         </section>
       </Modal>

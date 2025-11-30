@@ -23,7 +23,7 @@ export const CartProvider = ({ children }) => {
   const itemsCount        = getCartCount();
   const [count, setCount] = useState(itemsCount);
 
-  const refreshCount = () => setCount(prev => console.log(`__${prev}`) || getCartCount())
+  const refreshCount = () => setCount(prev => getCartCount())
 
   return (
     <cartContext.Provider value={{count, refreshCount}} >

@@ -35,6 +35,7 @@ class Order
 
     const body = {
       customer_id: data.customer_id,
+      notes: data.notes,
       items: data.items ?? [],
     };
 
