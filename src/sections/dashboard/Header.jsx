@@ -16,7 +16,7 @@ const Header = (props) => {
       <section
         className="flex justify-center items-center ml-auto"
       >
-        <NotificationBell className="flex-shrink-0 !hidden sm:!flex mr-[8px] md:mr-[16px] w-[24px] h-[24px] md:w-[32px] md:h-[32px] lg:w-[40px] lg:h-[40px]"/>
+        <NotificationBell className="flex-shrink-0 mr-[8px] w-[40px] h-[40px] pointer"/>
 
         <section className="flex items-center gap-[8px] md:gap-[24px]">
           <UserNavCard />

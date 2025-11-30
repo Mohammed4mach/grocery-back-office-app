@@ -7,7 +7,6 @@ import { Success } from '@/components/icons';
 
 const CartPage = () => {
   const [total, setTotal]         = useState(0);
-  const [currency, setCurrency]   = useState(null);
   const [items, setItems]         = useState([]);
   const [_refresh, setRefresh]    = useState(false);
   const {showLoader, closeLoader} = useLoader();
@@ -37,16 +36,13 @@ const CartPage = () => {
         responses.forEach(res => {
           if(res.status != 200)
           {
-            alert(res.data?.detail ?? 'Unkown error')
+            alert(res.data?.message ?? 'Unkown error')
             return;
           }
 
-          if(!currency)
-            setCurrency(res.data.currency);
-
           const item = {
-            product: res.data,
-            quantity: cart[res.data.id].quantity,
+            product: res.data.data,
+            quantity: cart[res.data.data.id].quantity,
           };
 
           const subtotal = item.product.price * item.quantity;
@@ -77,7 +73,7 @@ const CartPage = () => {
 
     if(res.status != 201)
     {
-      setOrderError(res.data?.detail ?? 'Unkown error, try again later');
+      setOrderError(res.data?.message ?? 'Unkown error, try again later');
       return;
     }
 
@@ -93,7 +89,7 @@ const CartPage = () => {
         items.length ? (
           <section className="flex-center flex-col gap-[40px]">
             <H2 className="">
-              Your bag Total is {total} {currency}
+              Your bag Total is {Math.round((total + Number.EPSILON) * 100) / 100}$
             </H2>
 
             <Button
@@ -140,28 +136,18 @@ const CartPage = () => {
 
             <section className="flex gap-[8px] items-end">
               <span className="clr-gray4 font-[500]">Total:</span>
-              <span className="clr-black text-[32px] font-[500] leading-[32px]">{total} {currency}</span>
+              <span className="clr-black text-[32px] font-[500] leading-[32px]">{total}$</span>
             </section>
           </section>
 
           {orderError && <P className="clr-rejected w-full font-medium">{orderError}</P>}
-          <section className="flex-center gap-[16px]">
-            <section className="flex flex-col h-[320px] gap-[16px]">
+          <section className="flex-center flex-col gap-[16px]">
+            <section className="flex flex-col gap-[16px]">
               <FormUnit>
                 <Label>Name</Label>
 
                 <Input
                   name="name"
-                  type="text"
-                  required
-                />
-              </FormUnit>
-
-              <FormUnit>
-                <Label>Phone</Label>
-
-                <Input
-                  name="phoneNumber"
                   type="text"
                   required
                 />

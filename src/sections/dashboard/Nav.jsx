@@ -1,21 +1,37 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
-  Dashboard,
+  VisaCard,
   ProductBox,
   ShoppingCart,
-  Cog,
 } from "@/components/icons";
+import { useCart } from '@/contexts/cartContext';
+import person from '@/assets/icons/user-line.svg';
 import indicator from '@/assets/icons/intersect.svg';
 
 const Nav = (props) => {
-  const {closeAside}      = props;
+  const {closeAside} = props;
+
+  const {count: cartItemsCount} = useCart();
+
+  // Update cart items count
+  useEffect(() => {
+    const cartCountStr = Number.isInteger(cartItemsCount) && cartItemsCount > 0 ? `(${cartItemsCount})` : ''
+
+    setLinks(prev => {
+      const newLinks = prev.slice();
+
+      newLinks[2].name = `Cart ${cartCountStr}`
+
+      return newLinks;
+    });
+  }, [cartItemsCount]);
 
   const [links, setLinks] = useState([
     {
       id: 1,
-      name: 'Dashboard',
-      icon: Dashboard,
+      name: 'Customers',
+      icon: () => <img className="w-[24px]" src={person} alt="Person icon" />,
       to: '/dashboard',
       end: true,
     },
@@ -27,26 +43,17 @@ const Nav = (props) => {
     },
     {
       id: 3,
-      name: 'Orders',
+      name: `Cart`,
       icon: ShoppingCart,
-      to: '/dashboard/orders',
+      to: '/dashboard/cart',
     },
     {
       id: 4,
-      name: 'Settings',
-      icon: Cog,
-      to: '/dashboard/settings',
+      name: 'Orders',
+      icon: VisaCard,
+      to: '/dashboard/orders',
     },
   ]);
-
-  useEffect(() => {
-    const newLinks = [...links];
-
-    // Update links
-    newLinks[3].to = `/dashboard/products`;
-
-    setLinks(newLinks);
-  }, []);
 
   return (
     <nav className="dashboard-nav">

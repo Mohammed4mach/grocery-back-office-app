@@ -18,7 +18,7 @@ const CreatePage = () =>
 
     if(res.status != 201)
     {
-      alert(res.data?.detail ?? 'Unkown error, try again later');
+      alert(res.data?.message ?? 'Unkown error, try again later');
       return;
     }
 

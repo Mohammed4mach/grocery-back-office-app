@@ -7,8 +7,9 @@ const OrdersLayout = () => {
   const {setTitle} = useDashboardTitle();
 
   useEffect(() => {
-    setTitle(() => <DashboardTitle>Orders</DashboardTitle>);
-  }, []);
+    if(setTitle instanceof Function)
+      setTitle(() => <DashboardTitle>Orders</DashboardTitle>);
+  }, [setTitle]);
 
   return (
     <Outlet />

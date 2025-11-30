@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { P, ProductCardModal } from '@/components';
-import placeholder from '@/assets/images/gray.png';
+import placeholder from '@/assets/images/image-placeholder.svg';
 
 const ProductCard = (props) => {
-  let {className, product, customerView} = props;
+  let {className, product} = props;
   className = className ?? '';
-
-  const img = product.pictures[0];
 
   const [modalShown, setModalShown] = useState(false);
 
@@ -22,7 +20,7 @@ const ProductCard = (props) => {
       >
         <img
           className="product-card__img"
-          src={img?.url ?? ''}
+          src={product.picture ?? placeholder}
           alt={product.name}
           onError={({ target }) => {
             target.onerror = null;
@@ -41,11 +39,7 @@ const ProductCard = (props) => {
             <div className="product-card__created_at"></div>
 
             <section className="flex gap-[4px]">
-              {
-                product.oldPrice &&
-                <div className="product-card__price--old">{product.oldPrice} {product.currency}</div>
-              }
-              <div className={`product-card__price ${customerView ? 'clr-black' : ''}`}>{product.price} {product.currency}</div>
+              <div className={`product-card__price`}>{product.price}$</div>
             </section>
           </section>
         </section>
@@ -55,7 +49,6 @@ const ProductCard = (props) => {
         shown={modalShown}
         close={() => setModalShown(false)}
         product={product}
-        customerView={customerView}
       />
     </>
   )

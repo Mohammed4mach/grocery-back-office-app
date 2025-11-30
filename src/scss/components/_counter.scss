@@ -16,13 +16,21 @@
     font-size: 24px;
     text-align: center;
     color: $clr-gray-dark;
+    border: none;
     outline: none;
   }
 
   &__btn
   {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 24px;
     height: 24px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
 
     &[disabled]
     {

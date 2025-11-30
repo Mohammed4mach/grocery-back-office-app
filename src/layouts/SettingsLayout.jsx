@@ -16,8 +16,9 @@ const SettingsLayout = () =>
   const isSettings = Boolean(matchPath('/dashboard/settings' , location.pathname));
 
   useEffect(() => {
-    setTitle(() => <DashboardTitle>Settings</DashboardTitle>);
-  }, []);
+    if(setTitle instanceof Function)
+      setTitle(() => <DashboardTitle>Settings</DashboardTitle>);
+  }, [setTitle]);
 
   if(isSettings)
     navigate('/dashboard/settings');

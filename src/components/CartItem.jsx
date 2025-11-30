@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { Cart } from '@/services';
 import { P, A, ProductCardModal } from '@/components';
-import placeholder from '@/assets/images/gray.png';
 import Counter from './inputs/Counter';
+import { useCart } from '@/contexts/cartContext';
+import placeholder from '@/assets/images/image-placeholder.svg';
 
 const CartItem = (props) => {
   let {className, item, refresh, addToTotal} = props;
-  const img                                              = item.product.pictures[0]?.url;
-  const [qty, setQty]                                    = useState(item.quantity);
-  const [modalShown, setModalShown]                      = useState(false);
+  const img                         = placeholder;
+  const [qty, setQty]               = useState(item.quantity);
+  const [modalShown, setModalShown] = useState(false);
+
+  const {refreshCount} = useCart();
 
   className = className ?? '';
 
@@ -18,12 +21,14 @@ const CartItem = (props) => {
 
     if(refresh instanceof Function)
       refresh();
+
+    refreshCount();
   };
 
   const updateQty = newQty => {
-    const cart       = new Cart();
-    const difference = newQty - qty;
-    const change     = item.product.price * difference;
+    const cart            = new Cart();
+    const difference      = newQty - qty;
+    const change          = item.product.price * difference;
 
     cart.update(item.product.id, {quantity: newQty})
 
@@ -31,6 +36,8 @@ const CartItem = (props) => {
       addToTotal(change);
 
     setQty(newQty);
+
+    refreshCount();
 
     return true;
   }
@@ -61,18 +68,18 @@ const CartItem = (props) => {
 
             <Counter
               min={1}
-              max={item.product.stock}
+              max={99}
               defaultValue={item.quantity}
               preChange={updateQty}
             />
 
             <section className="flex flex-col items-end gap-[16px]">
               <div className="cart-item__product-price cart-item__strong">
-                {item.product.price} {item.product.currency}
+                {item.product.price}$
               </div>
 
               <button
-                className="clr-rejected"
+                className="clr-rejected border-0 bg-transparent pointer"
                 onClick={remove}
               >
                 Remove

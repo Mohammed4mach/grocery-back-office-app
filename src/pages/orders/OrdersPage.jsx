@@ -24,8 +24,9 @@ const OrdersPage = () => {
   const {setTitle} = useDashboardTitle();
 
   useEffect(() => {
-    setTitle(() => <DashboardTitle>Orders</DashboardTitle>);
-  }, []);
+    if(setTitle instanceof Function)
+      setTitle(() => <DashboardTitle>Orders</DashboardTitle>);
+  }, [setTitle]);
 
   useEffect(() => {
     showLoader();
@@ -41,7 +42,7 @@ const OrdersPage = () => {
       .then(res => {
         if(res.status != 200)
         {
-          alert(res.data?.detail ?? 'Unkown error')
+          alert(res.data?.message ?? 'Unkown error')
           navigate('/dashboard');
         }
 

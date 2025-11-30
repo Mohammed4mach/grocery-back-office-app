@@ -43,6 +43,7 @@ const LoginPage = () =>
       ref={form}
     >
       <section>
+        <span className="text-red"></span>
         <H3 className="mb-[8px] md:mb-[16px]">
           Hello Again <WavingHand className="inline" />
         </H3>

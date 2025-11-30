@@ -20,8 +20,9 @@ const AccountPage = () =>
   const {setTitle} = useDashboardTitle();
 
   useEffect(() => {
-    setTitle(() => <DashboardTitle>My Account</DashboardTitle>);
-  }, []);
+    if(setTitle instanceof Function)
+      setTitle(() => <DashboardTitle>My Account</DashboardTitle>);
+  }, [setTitle]);
 
   useEffect(() => {
     showLoader();
@@ -29,7 +30,7 @@ const AccountPage = () =>
       .then(res => {
         if(res.status != 200)
         {
-          alert(res.data?.detail ?? 'Unkown error')
+          alert(res.data?.message ?? 'Unkown error')
           navigate('/dashboard');
         }
 
@@ -53,7 +54,7 @@ const AccountPage = () =>
 
     if(res.status != 204)
     {
-      alert(res.data?.detail ?? 'Unkown error, try again later');
+      alert(res.data?.message ?? 'Unkown error, try again later');
       return;
     }
 
@@ -81,7 +82,7 @@ const AccountPage = () =>
 
     if(res.status != 202)
     {
-      alert(res.data?.detail ?? 'Unkown error, try again later');
+      alert(res.data?.message ?? 'Unkown error, try again later');
       return;
     }
 
@@ -100,17 +101,17 @@ const AccountPage = () =>
                   type="text"
                   name="name"
                   placeholder="Enter your name"
-                  defaultValue={user.name ?? ''}
+                  defaultValue={user.fullname ?? ''}
                   onChange={onFieldChange}
                   required
                 />
               </FormUnit>
 
               <FormUnit>
-                <Label>Phone</Label>
+                <Label>Username</Label>
                 <Input
                   type="text"
-                  name="phone"
+                  name="username"
                   placeholder="Enter your phone number"
                   defaultValue={user.phone ?? ''}
                   onChange={onFieldChange}

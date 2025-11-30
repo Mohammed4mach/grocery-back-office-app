@@ -62,7 +62,7 @@ const UserNavCard = (props) => {
         if(res.status != 200)
           return logout();
 
-        setUser(res.data ?? {});
+        setUser(res.data.data ?? {});
       })
       .catch(alert)
       .finally(closeLoader());

@@ -24,7 +24,7 @@ const Order = (props) => {
 
     if(res.status != 204)
     {
-      alert(res.data?.detail ?? 'Unkown error')
+      alert(res.data?.message ?? 'Unkown error')
       closeLoader();
       return;
     }

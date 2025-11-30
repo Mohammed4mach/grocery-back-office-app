@@ -21,7 +21,7 @@ const EditPage = () =>
       .then(res => {
         if(res.status != 200)
         {
-          alert(res.data?.detail ?? 'Unkown error')
+          alert(res.data?.message ?? 'Unkown error')
           navigate('/dashboard');
         }
 
@@ -50,7 +50,7 @@ const EditPage = () =>
 
     if(res.status != 204)
     {
-      alert(res.data?.detail ?? 'Unkown error, try again later');
+      alert(res.data?.message ?? 'Unkown error, try again later');
       return;
     }
 
@@ -64,7 +64,7 @@ const EditPage = () =>
 
     if(res.status != 204)
     {
-      alert(res.data?.detail ?? 'Unkown error, try again later');
+      alert(res.data?.message ?? 'Unkown error, try again later');
       return;
     }
 
@@ -114,7 +114,7 @@ const EditPage = () =>
 
                     if(res.status != 204)
                     {
-                      alert(res.data?.detail ?? 'Unkown error, try again later');
+                      alert(res.data?.message ?? 'Unkown error, try again later');
                       closeLoader();
                       return false;
                     }

@@ -22,7 +22,7 @@ const ProductsPage = () => {
       .then(res => {
         if(res.status != 200)
         {
-          alert(res.data?.detail ?? 'Unkown error')
+          alert(res.data?.message ?? 'Unkown error')
           navigate('/dashboard');
         }
 

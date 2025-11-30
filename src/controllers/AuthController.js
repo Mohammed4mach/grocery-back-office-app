@@ -39,7 +39,7 @@ class AuthController
 
     if(res.status != 201)
       return {
-        error: res.data?.detail ?? 'Unkown error, try again later',
+        error: res.data?.message ?? 'Unkown error, try again later',
       };
 
     return await AuthController.login(username, password);

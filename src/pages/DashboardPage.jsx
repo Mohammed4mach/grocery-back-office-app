@@ -14,19 +14,20 @@ const DashboardPage = () => {
   const { setTitle } = useDashboardTitle();
 
   useEffect(() => {
-    setTitle(() => (
-      <section className="flex flex-col gap-[8px] md:gap-[12px]">
-        <DashboardTitle className="flex gap-[8px] md:gap-[16px] text-nowrap">
-          Hi, {user.name?.split(' ')[0] ?? 'User'}!
-          <img className="w-[24px] sm:w-[32px] md:w-[48px] lg:w-[56px]" src={hand} alt="Waving hand" />
-        </DashboardTitle>
+    if(setTitle instanceof Function)
+      setTitle(() => (
+        <section className="flex flex-col gap-[8px] md:gap-[12px]">
+          <DashboardTitle className="flex gap-[8px] md:gap-[16px] text-nowrap">
+            Hi, {user.fullname?.split(' ')[0] ?? 'User'}!
+            <img className="w-[24px] sm:w-[32px] md:w-[48px] lg:w-[56px]" src={hand} alt="Waving hand" />
+          </DashboardTitle>
 
-        <P className="text-[18px] max-w-[180px] sm:max-w-[300px] md:max-w-fit sm:text-[24px] lg:text-[28px] xl:text-[32px] clr-gray-dark">
-          Let’s Manage Your Business Smarter
-        </P>
-      </section>
-    ));
-  }, [user]);
+          <P className="text-[18px] max-w-[180px] sm:max-w-[300px] md:max-w-fit sm:text-[24px] lg:text-[28px] xl:text-[32px] clr-gray-dark">
+            Let’s Manage Your Business Smarter
+          </P>
+        </section>
+      ));
+  }, [user, setTitle]);
 
   return (
     <main className="dashboard-page">

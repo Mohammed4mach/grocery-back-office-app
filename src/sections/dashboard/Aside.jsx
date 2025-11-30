@@ -26,7 +26,7 @@ const Aside = (props) => {
         </section>
 
         <section className="dashboard-aside__footer">
-          FOOTER
+          {/* Anything */}
         </section>
       </section>
     </aside>

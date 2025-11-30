@@ -28,7 +28,6 @@ import {
   LandingPage,
 } from "@/pages";
 import {
-  ProductsPage as CustomerProductsPage,
   CartPage,
 } from "@/pages/customer";
 
@@ -59,19 +58,6 @@ const router = createBrowserRouter([
     element: <AuthRoute />,
     children: [
       {
-        element: <CustomerLayout />,
-        children: [
-          {
-            path: '/products',
-            element: <CustomerProductsPage />
-          },
-          {
-            path: '/cart',
-            element: <CartPage />
-          },
-        ],
-      },
-      {
         path: '/dashboard',
         element: <DashboardLayout />,
 
@@ -97,6 +83,10 @@ const router = createBrowserRouter([
           {
             path: 'products',
             element: <DashboardProductsPage />,
+          },
+          {
+            path: 'cart',
+            element: <CartPage />
           },
           {
             path: 'my-account',

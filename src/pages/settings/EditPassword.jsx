@@ -27,7 +27,7 @@ const EditPassword = () =>
 
     if(res.status != 204)
     {
-      setError(res.data?.detail ?? 'Unkown error, try again later');
+      setError(res.data?.message ?? 'Unkown error, try again later');
       return;
     }
 

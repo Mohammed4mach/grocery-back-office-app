@@ -11,5 +11,8 @@ export default {
     extend: {},
   },
   plugins: [],
+  corePlugins: {
+    preflight: true
+  },
 }
 

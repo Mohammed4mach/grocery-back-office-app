@@ -24,7 +24,7 @@ const ShowPage = () =>
       .then(res => {
         if(res.status != 200)
         {
-          alert(res.data?.detail ?? 'Unkown error')
+          alert(res.data?.message ?? 'Unkown error')
           navigate('/dashboard');
           return;
         }
@@ -45,7 +45,7 @@ const ShowPage = () =>
 
     if(res.status != 204)
     {
-      alert(res.data?.detail ?? 'Unkown error')
+      alert(res.data?.message ?? 'Unkown error')
       closeLoader();
       return;
     }

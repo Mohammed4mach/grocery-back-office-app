@@ -40,6 +40,16 @@ body
   font-family: $font-main-family;
 }
 
+a
+{
+  text-decoration: none;
+}
+
+.pointer
+{
+  cursor: pointer;
+}
+
 .bg-ribbon
 {
   background: url('/images/red-ribbon.svg') no-repeat center;
