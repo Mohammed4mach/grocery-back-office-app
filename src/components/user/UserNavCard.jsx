@@ -6,7 +6,6 @@ import { useLoader, useUser } from '@/hooks';
 import arrow from '@/assets/icons/arrow-drop-down-line-gray3.svg'
 import user from '@/assets/icons/user-line.svg';
 import logoutIcon from '@/assets/icons/logout-box-r-line.svg';
-import store from '@/assets/icons/store-2-line.svg';
 
 const Menu = ({ close, logout }) => {
   return (
@@ -15,16 +14,6 @@ const Menu = ({ close, logout }) => {
         <img src={user} alt="user icon" className="user-nav-card__drop-menu__item__image" />
         <span className="user-nav-card__drop-menu__item__title">
           My Account
-        </span>
-      </NavLink>
-
-      <NavLink
-        to={`/products`}
-        className="user-nav-card__drop-menu__item"
-      >
-        <img src={store} alt="store icon" className="user-nav-card__drop-menu__item__image" />
-        <span className="user-nav-card__drop-menu__item__title">
-          My Store
         </span>
       </NavLink>
 

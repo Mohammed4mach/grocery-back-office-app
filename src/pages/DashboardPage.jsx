@@ -1,17 +1,36 @@
-import { useEffect } from 'react';
-import { useUser, useDashboardTitle } from '@/hooks';
+import { useState, useEffect } from 'react';
+import { useLoader, useUser, useDashboardTitle } from '@/hooks';
+import { Customer } from '@/services';
 import {
-  A,
   P,
   DashboardTitle,
 } from '@/components';
+import person from '@/assets/icons/user-line.svg';
 import hand from '@/assets/icons/fluent_hand-wave-24-filled.svg';
-import pending from '@/assets/icons/Pending.svg';
-import confirmed from '@/assets/icons/Confirmed.svg';
 
 const DashboardPage = () => {
-  const { user }     = useUser();
-  const { setTitle } = useDashboardTitle();
+  const { user }                  = useUser();
+  const { setTitle }              = useDashboardTitle();
+  const {showLoader, closeLoader} = useLoader();
+  const [customers, setCustomers] = useState({});
+
+  useEffect(() => {
+    showLoader();
+
+    Customer.index()
+      .then(res => {
+        if(res.status != 200)
+        {
+          alert(res.data?.message ?? 'Unkown error')
+          navigate('/dashboard');
+          return;
+        }
+
+        setCustomers(res.data.data ?? {});
+      })
+      .catch(alert)
+      .finally(() => closeLoader());
+  }, []);
 
   useEffect(() => {
     if(setTitle instanceof Function)
@@ -22,7 +41,7 @@ const DashboardPage = () => {
             <img className="w-[24px] sm:w-[32px] md:w-[48px] lg:w-[56px]" src={hand} alt="Waving hand" />
           </DashboardTitle>
 
-          <P className="text-[18px] max-w-[180px] sm:max-w-[300px] md:max-w-fit sm:text-[24px] lg:text-[28px] xl:text-[32px] clr-gray-dark">
+          <P className="text-[18px] sm:max-w-[300px] md:max-w-fit sm:text-[24px] lg:text-[28px] xl:text-[32px] clr-gray-dark">
             Let’s Manage Your Business Smarter
           </P>
         </section>
@@ -31,54 +50,42 @@ const DashboardPage = () => {
 
   return (
     <main className="dashboard-page">
-      <section className="dashboard-page__analytics max-w-[920px]">
-          <section className="dashboard-page__analytics__box__body">
-          </section>
-      </section>
+      <section className="w-full customers__products">
+        <section className="customers__products__header">
+          <div className="customers__icon">
+            <img src={person} alt="person" />
+          </div>
 
-      {/* Orders */}
-      <section className="dashboard-page__analytics__box dashboard-page__analytics__box--compact">
-        <section className="dashboard-page__analytics__box__header">
-          <h6 className="dashboard-page__analytics__box__title flex gap-[8px]">
-            Orders
-          </h6>
-
-          <A
-            to="/dashboard/orders"
-            className="text-[12px] md:text-[14px]"
-            nounderline
-          >
-            Manage
-          </A>
+          <div className="customers__title">
+            Customers
+          </div>
         </section>
 
-        <section className="dashboard-page__analytics__box__body">
-          <section className="w-full flex justify-between">
-            <section className="dashboard-page__analytics__card">
-              <div className="dashboard-page__analytics__card__img">
-                <img src={pending} alt="pending" />
-              </div>
+        {
+          customers?.length ? (
+            <section className="customers__products__body">
+              {/* Table headings */}
+              <div className="customers__products__cell customers__products__cell--head flex-center max-w-[90px]">#</div>
+              <div className="customers__products__cell customers__products__cell--head">Fullname</div>
+              <div className="customers__products__cell customers__products__cell--head">Address</div>
+              <div className="customers__products__cell customers__products__cell--head"></div>
 
-              <section className="dashboard-page__analytics__card__content">
-                <span className="dashboard-page__analytics__card__content__strong">
-                </span>
-                <span>Pending</span>
-              </section>
+              {
+                customers.map(customer => (
+                  <>
+                    <div className="customers__products__cell flex-center max-w-[90px]">
+                      {customer.id}
+                    </div>
+                    <div className="customers__products__cell">{customer.fullname}</div>
+                    <div className="customers__products__cell">{`${customer.address}$`}</div>
+                    <div className="customers__products__cell"></div>
+                    <div className="customers__products__cell"></div>
+                  </>
+                ))
+              }
             </section>
-
-            <section className="dashboard-page__analytics__card">
-              <div className="dashboard-page__analytics__card__img">
-                <img src={confirmed} alt="confirmed" />
-              </div>
-
-              <section className="dashboard-page__analytics__card__content">
-                <span className="dashboard-page__analytics__card__content__strong">
-                </span>
-                <span>Confirmed</span>
-              </section>
-            </section>
-          </section>
-        </section>
+          ) : null
+        }
       </section>
     </main>
   )

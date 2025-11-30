@@ -125,7 +125,7 @@
     &__body
     {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       row-gap: 24px;
       column-gap: 16px;
       padding-top: 32px;
@@ -150,7 +150,7 @@
       width: 56px;
       height: 56px;
       border-radius: 4px;
-      border: 1px solid $clr-gray4;
+      border: 1px solid $clr-gray1;
       overflow: hidden;
 
       img

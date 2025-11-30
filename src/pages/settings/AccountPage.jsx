@@ -34,7 +34,7 @@ const AccountPage = () =>
           navigate('/dashboard');
         }
 
-        setUser(res.data ?? []);
+        setUser(res.data.data ?? []);
       })
       .catch(alert)
       .finally(() => closeLoader());
@@ -96,7 +96,7 @@ const AccountPage = () =>
           <section className="account-page__info__form">
             <section className="flex flex-col gap-[16px]">
               <FormUnit>
-                <Label>Name</Label>
+                <Label>Fullname</Label>
                 <Input
                   type="text"
                   name="name"
@@ -112,8 +112,8 @@ const AccountPage = () =>
                 <Input
                   type="text"
                   name="username"
-                  placeholder="Enter your phone number"
-                  defaultValue={user.phone ?? ''}
+                  placeholder="Enter your username"
+                  defaultValue={user.username ?? ''}
                   onChange={onFieldChange}
                   required
                 />

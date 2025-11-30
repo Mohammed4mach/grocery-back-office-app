@@ -9,7 +9,7 @@ const LogoFullSquared = (props) =>
     <a
       {...props}
       className={`logo ${className}`}
-      href="/"
+      href="/dashboard"
     >
       <img className="w-full" src={logo} />
     </a>
