@@ -91,7 +91,6 @@ const DashboardPage = () => {
                     <div className="customers__table__cell">{customer.fullname}</div>
                     <div className="customers__table__cell">{`${customer.address}$`}</div>
                     <div className="customers__table__cell"></div>
-                    <div className="customers__table__cell"></div>
                   </Fragment>
                 ))
               }
