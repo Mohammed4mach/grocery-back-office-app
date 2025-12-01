@@ -19,7 +19,15 @@ const ProductsPage = () => {
 
   useEffect(() => {
     if(setTitle instanceof Function)
-      setTitle(() => <DashboardTitle>Products</DashboardTitle>);
+      setTitle(() => (
+        <section className="flex flex-col gap-[8px] md:gap-[12px]">
+          <DashboardTitle>Products</DashboardTitle>
+
+          <P className="text-[18px] sm:max-w-[300px] md:max-w-fit sm:text-[24px] lg:text-[28px] xl:text-[32px] clr-gray-dark">
+            Master Your Stock, Maximize Your Margin
+          </P>
+        </section>
+      ));
   }, [setTitle]);
 
   useEffect(() => {

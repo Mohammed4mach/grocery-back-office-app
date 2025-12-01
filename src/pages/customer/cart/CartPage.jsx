@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDashboardTitle } from '@/hooks';
 import { H2, P, Button, CartItem, Modal, InfoTooltip, DashboardTitle } from '@/components';
-import { FormUnit, Label, Input, TextArea, Select, Option } from '@/components/inputs';
+import { FormUnit, Label, TextArea, Select, Option } from '@/components/inputs';
 import { Product as ProductModel, Cart, Order, Customer } from '@/services';
 import { useCart } from '@/contexts/cartContext';
 import { useLoader } from '@/contexts/loaderContext';
@@ -44,7 +44,15 @@ const CartPage = () => {
 
   useEffect(() => {
     if(setTitle instanceof Function)
-      setTitle(() => <DashboardTitle>Cart</DashboardTitle>);
+      setTitle(() => (
+        <section className="flex flex-col gap-[8px] md:gap-[12px]">
+          <DashboardTitle>Cart</DashboardTitle>
+
+          <P className="text-[18px] sm:max-w-[300px] md:max-w-fit sm:text-[24px] lg:text-[28px] xl:text-[32px] clr-gray-dark">
+            Understand the 'Why' Behind Every Buy
+          </P>
+        </section>
+      ));
   }, [setTitle]);
 
   useEffect(() => {

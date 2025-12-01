@@ -30,7 +30,7 @@ const Order = (props) => {
       <div className="order__cell !p-0">
         {orderedAt}
       </div>
-      <div className={`order__cell flex-center order__cell--last ${orderScheduled ? 'clr-main' : ''} ${last ? 'order__cell--last--last' : ''}`}>
+      <div className={`order__cell flex-center order__cell--last ${orderScheduled && order.is_green_delivery ? 'clr-main' : ''} ${last ? 'order__cell--last--last' : ''}`}>
         {scheduledAt}
       </div>
     </>

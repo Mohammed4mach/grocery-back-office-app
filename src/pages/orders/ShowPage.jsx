@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Order, OrderItem, Customer } from '@/services';
 import { Button } from '@/components';
 import { useLoader } from '@/hooks';
 import { formatDate } from '@/helpers';
+import ScheduleModal from './sections/ScheduleModal';
 import placeholder from '@/assets/images/image-placeholder.svg';
 import arrow from '@/assets/icons/arrow-left-line-black.svg';
 import user from '@/assets/icons/user-3-line.svg';
 import cart from '@/assets/icons/shopping-cart-2-line-gray1.svg';
 import todo from '@/assets/icons/todo-line.svg';
 import cube from '@/assets/icons/fluent-mdl2_product-gray1.svg';
+import leaf from '@/assets/icons/leaf-green.svg';
 
 const ShowPage = () =>
 {
@@ -19,6 +21,13 @@ const ShowPage = () =>
   const [customer, setCustomer]   = useState({});
   const {orderId}                 = useParams();
   const {showLoader, closeLoader} = useLoader();
+
+  const [_refresh, setRefresh] = useState(false);
+  const refresh = () => setRefresh(prev => !prev);
+
+  const [scheduleModalShown, setScheduleModalShown] = useState(false);
+
+  const deliveryDateTime = order.delivery_date && order.delivery_time ? formatDate(`${order.delivery_date} ${order.delivery_time}`) : '';
 
   useEffect(() => {
     showLoader();
@@ -36,7 +45,7 @@ const ShowPage = () =>
       })
       .catch(alert)
       .finally(() => closeLoader());
-  }, []);
+  }, [_refresh]);
 
   useEffect(() => {
     if(!order.id)
@@ -57,7 +66,7 @@ const ShowPage = () =>
       })
       .catch(alert)
       .finally(() => closeLoader());
-  }, [order.id]);
+  }, [order.id, _refresh]);
 
   useEffect(() => {
     if(!order.customer_id)
@@ -78,7 +87,7 @@ const ShowPage = () =>
       })
       .catch(alert)
       .finally(() => closeLoader());
-  }, [order.customer_id]);
+  }, [order.customer_id, _refresh]);
 
   return (
     <section className="order-show">
@@ -99,9 +108,9 @@ const ShowPage = () =>
         <section className="flex-center gap-[16px]">
           <Button
             className="!w-[180px] !h-[56px] !text-[16px]"
-            onClick={() => 1}
+            onClick={() => setScheduleModalShown(true)}
           >
-            Confirm
+            Schedule
           </Button>
         </section>
       </section>
@@ -139,14 +148,37 @@ const ShowPage = () =>
               <h5 className="order-show__title">
                 Order info
               </h5>
+
+              {
+                order.is_green_delivery ? (
+                  <div className="flex-center w-[40px] ml-auto">
+                    <img
+                      src={leaf}
+                      alt="Green leaf"
+                      className="w-full"
+                    />
+                  </div>
+                ) : null
+              }
             </section>
 
             <section className="order-show__info-card__body">
+              <div className="order-show__info-card__info__key">Total Cost:</div>
+              <p className="order-show__info-card__info__value">{order.total_cost}$</p>
+
               <div className="order-show__info-card__info__key">Ordered at:</div>
               <p className="order-show__info-card__info__value">{formatDate(order.order_time)}</p>
 
-              <div className="order-show__info-card__info__key">Total Cost:</div>
-              <p className="order-show__info-card__info__value">{order.total_cost}$</p>
+              {
+                order.delivery_date && order.delivery_time ? (
+                  <>
+                    <div className="order-show__info-card__info__key">Delivery Scheduled at:</div>
+                    <p className={`order-show__info-card__info__value ${order.is_green_delivery ? 'clr-main' : ''}`}>
+                      {deliveryDateTime}
+                    </p>
+                  </>
+                ) : null
+              }
             </section>
           </section>
 
@@ -193,7 +225,7 @@ const ShowPage = () =>
 
                 {
                   items.map(item => (
-                    <>
+                    <Fragment key={item.id}>
                       <div className="order-show__products__cell flex-center max-w-[90px]">
                         <div className="order-show__products__img">
                           <img
@@ -208,7 +240,7 @@ const ShowPage = () =>
                       <div className="order-show__products__cell">
                         {`${Math.round(((item.cost_per_item * item.quantity) + Number.EPSILON) * 100) / 100}$`}
                       </div>
-                    </>
+                    </Fragment>
                   ))
                 }
               </section>
@@ -216,6 +248,13 @@ const ShowPage = () =>
           }
         </section>
       </section>
+
+      <ScheduleModal
+        order={order}
+        close={() => setScheduleModalShown(false)}
+        shown={scheduleModalShown}
+        refresh={refresh}
+      />
     </section>
   );
 };
