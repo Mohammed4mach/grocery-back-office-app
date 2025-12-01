@@ -7,4 +7,5 @@ export { default as OrdersPage } from './orders/OrdersPage';
 export { default as ProductsPage } from './products/ProductsPage';
 export { default as AccountPage } from './settings/AccountPage';
 export { default as EditPassword } from './settings/EditPassword';
+export { default as CartPage } from './cart/CartPage';
 

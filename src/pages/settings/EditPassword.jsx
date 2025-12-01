@@ -67,7 +67,7 @@ const EditPassword = () =>
               </section>
 
               <section>
-                <Button submit={submit} halfRadius>
+                <Button onClick={() => alert('Coming Soon!')} halfRadius>
                   Update
                 </Button>
               </section>

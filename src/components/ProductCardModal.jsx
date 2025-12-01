@@ -80,7 +80,7 @@ const ProductCardModal = (props) => {
                   </Button>
 
                   <Button
-                    to={`/products/${product.id}/edit`}
+                    onClick={() => alert('Coming Soon!')}
                     className="!w-[200px] !h-[60px] flex gap-[8px] text-[24px] font-[500] btn--half-radius"
                     secondary
                   >

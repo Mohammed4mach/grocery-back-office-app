@@ -34,7 +34,6 @@ export { default as ProductForm } from './dashboard/ProductForm';
 export { default as InfoTooltip } from './InfoTooltip';
 export { default as CartItem } from './CartItem';
 export { default as DashboardTitle } from './dashboard/DashboardTitle';
-export { default as AddRounded } from './buttons/AddRounded';
 export { default as DeliveryTime } from './DeliveryTime';
 export { default as TimeSlot } from './TimeSlot';
 

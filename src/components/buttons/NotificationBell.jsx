@@ -8,7 +8,7 @@ const NotificationBell = (props) => {
     <a
       {...props}
       className={`
-        btn-icon pointer
+        btn-icon
         ${className}
       `}
       role="button"

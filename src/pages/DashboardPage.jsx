@@ -54,7 +54,7 @@ const DashboardPage = () => {
     <main className="dashboard-page">
       <section className="w-full flex flex-col-reverse md:flex-row md:justify-between gap-[32px] md:gap-[64px]">
         <NavLink
-          to={`/products/create`}
+          onClick={() => alert(`Coming Soon!`)}
           className="flex-center gap-[8px] w-fit ml-auto text-[20px] md:text-[24px] clr-main text-center cursor-pointer flex-shrink-0"
         >
           <img src={add} alt="add icon" />

@@ -18,18 +18,15 @@ import {
   LoginPage,
   RegisterPage,
   EditPassword,
+  CartPage,
 } from "@/pages";
 import {
   CreatePage as ProductCreatePage,
   EditPage as ProductEditPage,
 } from "@/pages/products";
-import { CustomerLayout } from "@/layouts";
 import {
   LandingPage,
 } from "@/pages";
-import {
-  CartPage,
-} from "@/pages/customer";
 
 const router = createBrowserRouter([
   {
