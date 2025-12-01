@@ -28,89 +28,94 @@ import {
   LandingPage,
 } from "@/pages";
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <LandingPage />,
-  },
-  {
-    element: <UnauthedRoute />,
-    children: [
-      {
-        element: <FormLayout />,
-        children: [
-          {
-            path: 'login',
-            element: <LoginPage />,
-          },
-          {
-            path: 'register',
-            element: <RegisterPage />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    element: <AuthRoute />,
-    children: [
-      {
-        path: '/dashboard',
-        element: <DashboardLayout />,
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <LandingPage />,
+    },
+    {
+      element: <UnauthedRoute />,
+      children: [
+        {
+          element: <FormLayout />,
+          children: [
+            {
+              path: 'login',
+              element: <LoginPage />,
+            },
+            {
+              path: 'register',
+              element: <RegisterPage />,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      element: <AuthRoute />,
+      children: [
+        {
+          path: '/dashboard',
+          element: <DashboardLayout />,
 
-        children: [
-          {
-            path: '',
-            element: <DashboardPage />
-          },
-          {
-            path: 'orders',
-            element: <OrdersLayout />,
-            children: [
-              {
-                path: '',
-                element: <OrdersPage />,
-              },
-              {
-                path: ':orderId',
-                element: <OrderShowPage />,
-              },
-            ],
-          },
-          {
-            path: 'products',
-            element: <DashboardProductsPage />,
-          },
-          {
-            path: 'cart',
-            element: <CartPage />
-          },
-          {
-            path: 'my-account',
-            element: <AccountPage />,
-          },
-        ],
-      },
-      {
-        element: <FormLayout />,
-        children: [
-          {
-            path: 'products/create',
-            element: <ProductCreatePage />,
-          },
-          {
-            path: 'products/:productId/edit',
-            element: <ProductEditPage />,
-          },
-          {
-            path: 'my-account/password/edit',
-            element: <EditPassword />,
-          },
-        ]
-      },
-    ]
-  },
-]);
+          children: [
+            {
+              path: '',
+              element: <DashboardPage />
+            },
+            {
+              path: 'orders',
+              element: <OrdersLayout />,
+              children: [
+                {
+                  path: '',
+                  element: <OrdersPage />,
+                },
+                {
+                  path: ':orderId',
+                  element: <OrderShowPage />,
+                },
+              ],
+            },
+            {
+              path: 'products',
+              element: <DashboardProductsPage />,
+            },
+            {
+              path: 'cart',
+              element: <CartPage />
+            },
+            {
+              path: 'my-account',
+              element: <AccountPage />,
+            },
+          ],
+        },
+        {
+          element: <FormLayout />,
+          children: [
+            {
+              path: 'products/create',
+              element: <ProductCreatePage />,
+            },
+            {
+              path: 'products/:productId/edit',
+              element: <ProductEditPage />,
+            },
+            {
+              path: 'my-account/password/edit',
+              element: <EditPassword />,
+            },
+          ]
+        },
+      ]
+    },
+  ],
+  {
+    basename: import.meta.env.VITE_BASE_URL
+  }
+);
 
 export default router;
 
