@@ -5,6 +5,7 @@ on:
     types:
       - closed
     branches: [production]
+  workflow_dispatch:
 
 permissions:
   contents: read
