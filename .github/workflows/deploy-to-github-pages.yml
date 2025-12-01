@@ -34,6 +34,8 @@ jobs:
           echo "VITE_SITE_URL=${{ secrets.SITE_URL }}" >> .env
 
       - name: Build React app
+        env:
+          PUBLIC_URL: /grocery-back-office-app
         run: npm run build
 
       - name: Setup Pages
@@ -42,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build/
+          path: dist/
 
   deploy:
     environment:
